@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <ul>
+            <li><a> What is BMI?</a></li>
+            <li><a>BMI For childeren</a></li>
+            <li><span><h2>BMI</h2><h2><i class="fas fa-heartbeat"></i></h2><h2>CALCULATOR</h2></span></li>
+            <li><a>Get diet for</a>
+                <ul>
+                    <li>
+                        <div class="sub">
+                            <ul>
+                                <li><a href="">Underweight</a></li>
+                                <li><a href="">Ovrweight</a></li>
+                                <li><a href="">Obese</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li><a>Help</a></li>
+        </ul>
+    </div>
+    <div class="box">
+        <div>
+            <h1>What is BMI?</h1>
+            <p>BMI or Body Mass Index is a method of estimating a person's body fat levels based on a person's weight and height measurement. While the BMI calculation is an indirect measurement, it has been found to be a fairly reliable indicator of body fat measures in most people. Research on BMI calculations finds a strong correlation with other, more complicated direct measurements of body fat levels, including underwater weighing. Because BMI is a simple calculation, anyone can use it to determine health risk due to excess body fat levels. <span>More>></span></p>
+        </div>
+        <div id="form">
+            <input id="w" type="text" placeholder="Your Weight in Kilograms">
+            <input type="text" id="h" placeholder="Your Height in metres">
+            <input type="number" id="a" min="19" max="99" placeholder="Age">
+            <label for="male">Male</label><input id="gender" type="radio" name="gender" value="Male">
+            <label for="female">Female</label><input id="gender" type="radio" name="gender" value="Female"><br>
+            <span>Fill the fields comlpletely</span>
+            <button onclick="BMI()" >Submit
+        </div>
+    </div>
+    <div id="box2">
+        <span>Your BMI is: <span></span></span>
+        <span></span>
+        <button>Get a Healthy Diet</button>
+    </div>
+    <script>
+        
+        function BMI(){
+            var a = document.getElementById("w").value;
+            var b = document.getElementById("h").value;
+            var c = document.getElementById("gender").value;
+
+            var x = a/(b*b);
+
+            document.getElementById("box2").style.display="block";
+            document.getElementsByClassName("box")[0].style.display="none";
+            document.querySelector("#box2>span:nth-of-type(1)>span").innerHTML=x;
+            
+            if (x <= 18.5){
+                document.querySelector("#box2>span:nth-of-type(2)").innerHTML="You are underweight.";
+            }
+            if ((x > 18.5) && (x <= 24.9)){
+                document.querySelector("#box2>span:nth-of-type(2)").innerHTML="Your weight is normal.";
+            }
+            if ((x > 24.9) && (x <= 29.9)){
+                document.querySelector("#box2>span:nth-of-type(2)").innerHTML="You are overweight.";
+            }
+            if (x >= 30){
+                document.querySelector("#box2>span:nth-of-type(2)").innerHTML="You are obese!";
+            }
+        }
+        
+    </script>
+</body>
+</html>
